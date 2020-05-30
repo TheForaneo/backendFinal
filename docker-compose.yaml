@@ -11,3 +11,8 @@ services:
 
     depends_on:
       - mongo
+  Front:
+    image: foraneo/front:latest
+    restart: always
+    ports: 8080:80
+  
