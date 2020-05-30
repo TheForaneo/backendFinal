@@ -43,6 +43,16 @@ namespace apiweb.Controllers{
             List<Mensajeria> lista = _mensajeria.GetMensajesRecibidosClienteTaller(clienteid, tallerid);
             return lista.LastOrDefault();;
         }
+
+        [HttpGet("habladoTaller/{clienteid:length(24)}", Name="habladoTaller")]
+        public ActionResult<List<Taller>> habladoTaller(string clienteid){
+            return _mensajeria.tallerHablado(clienteid);
+        }
+
+        [HttpGet("habladoClientes/{tallerid:length(24)}", Name="habladoClientes")]
+        public ActionResult<List<Cliente>> habladoClientes(string tallerid){
+            return _mensajeria.clienteHablado(tallerid);
+        }
         
         //[Route("[action]/")]
         [HttpGet("{id:length(24)}", Name="GetMensajes")]
