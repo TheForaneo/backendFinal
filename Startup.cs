@@ -107,6 +107,8 @@ namespace apiweb
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
 
             app.UseCors(MyAllowSpecificOrigins);
