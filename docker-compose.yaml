@@ -14,5 +14,6 @@ services:
   Front:
     image: foraneo/front:latest
     restart: always
-    ports: 8080:80
+    ports: 
+      - 8080:80
   
