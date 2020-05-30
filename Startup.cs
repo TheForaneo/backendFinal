@@ -98,7 +98,7 @@ namespace apiweb
                     builder.WithOrigins("*").SetIsOriginAllowed(isOriginAllowed: _ => true).AllowAnyHeader().AllowAnyMethod();
                 });
             });
-            /*
+            
             services.Configure<ForwardedHeadersOptions>(options =>
             {
                 options.ForwardedHeaders = 
@@ -106,21 +106,21 @@ namespace apiweb
             });
 
             services.AddHttpsRedirection(options => options.HttpsPort = 5000);
-            */
+            
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //app.UseForwardedHeaders();
+            app.UseForwardedHeaders();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
