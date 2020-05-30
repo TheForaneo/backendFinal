@@ -12,7 +12,7 @@ services:
     depends_on:
       - mongo
   Front:
-    image: foraneo/front:latest
+    image: foraneo/mechafinderfront:latest
     restart: always
     ports: 
       - '8080:8080'
