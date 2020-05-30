@@ -96,6 +96,9 @@ namespace apiweb
                     builder.WithOrigins("*").SetIsOriginAllowed(isOriginAllowed: _ => true).AllowAnyHeader().AllowAnyMethod();
                 });
             });
+
+            services.AddHttpsRedirection(options => options.HttpsPort = 5000);
+
             services.AddControllers();
         }
 
