@@ -16,6 +16,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using apiweb.Models;
 using apiweb.Services;
+using Microsoft.AspNetCore.HttpOverrides;
+
 namespace apiweb
 {
     public class Startup
@@ -97,6 +99,12 @@ namespace apiweb
                 });
             });
 
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = 
+                ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
+
             services.AddHttpsRedirection(options => options.HttpsPort = 5000);
 
             services.AddControllers();
@@ -105,6 +113,8 @@ namespace apiweb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseForwardedHeaders();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
