@@ -12,7 +12,7 @@
     <PackageReference Include="MailKit" Version="2.6.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
     <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.10.4" />
   </ItemGroup>
